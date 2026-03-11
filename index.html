@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DD Creative Arts | Debojit Das Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        bg: '#000000',
+                        ink: '#ffffff',
+                        accent: '#f27d26',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .apple-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-padding {
+            padding: 6rem 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding { padding: 6rem 3rem; }
+        }
+        @media (min-width: 1024px) {
+            .section-padding { padding: 6rem 6rem; }
+        }
+
+        /* Fade-in animation for static site */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0);
+        }
+        .gallery-item img {
+            transition: all 0.7s ease-in-out;
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+<body class="selection:bg-accent/30 selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="text-xl font-serif font-bold tracking-tight">
+                DD <span class="text-white/50 font-light italic">Creative Arts</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#gallery" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Gallery</a>
+                <a href="#about" class="text-sm font-medium text-white/70 hover:text-white transition-colors">About</a>
+                <a href="#order" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Order</a>
+                <a href="#contact" class="text-sm font-medium text-white/70 hover:text-white transition-colors">Contact</a>
+                <a href="#order" class="px-5 py-2 bg-white text-black text-xs font-bold rounded-full hover:bg-white/90 transition-all">
+                    Order Now
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-white/10 overflow-hidden">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#gallery" class="mobile-link text-lg font-medium text-white/70 hover:text-white">Gallery</a>
+                <a href="#about" class="mobile-link text-lg font-medium text-white/70 hover:text-white">About</a>
+                <a href="#order" class="mobile-link text-lg font-medium text-white/70 hover:text-white">Order</a>
+                <a href="#contact" class="mobile-link text-lg font-medium text-white/70 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-accent/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-white/5 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl reveal">
+            <span class="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-[0.2em] uppercase border border-white/20 rounded-full text-white/60">
+                Pencil Sketches & Creative Art
+            </span>
+            <h1 class="text-6xl md:text-8xl font-serif font-bold mb-8 leading-[1.1] tracking-tight text-gradient">
+                DD Creative Arts
+            </h1>
+            <p class="text-lg md:text-xl text-white/60 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Capturing emotions through the precision of graphite. A journey of creativity led by Debojit Das.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#gallery" class="group px-8 py-4 bg-white text-black rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform">
+                    View Gallery
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#order" class="px-8 py-4 border border-white/20 rounded-full font-bold hover:bg-white/5 transition-colors">
+                    Commission a Sketch
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+            <span class="text-[10px] uppercase tracking-widest text-white/30">Scroll</span>
+            <div class="w-[1px] h-12 bg-gradient-to-b from-white/30 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section-padding bg-[#050505]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">The Collection</h2>
+                    <p class="text-white/50 max-w-md">A curated selection of pencil sketches, portraits, and creative explorations.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-white/40 border-b border-white/20 pb-1">All Works</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Art Piece 1 -->
+                <div class="gallery-item reveal group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
+                    <img src="https://picsum.photos/seed/sketch1/800/1000" alt="Soulful Gaze" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Portrait</span>
+                        <h3 class="text-2xl font-serif font-bold">Soulful Gaze</h3>
+                    </div>
+                </div>
+                <!-- Art Piece 2 -->
+                <div class="gallery-item reveal group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
+                    <img src="https://picsum.photos/seed/sketch2/800/800" alt="Urban Lines" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Pencil Sketch</span>
+                        <h3 class="text-2xl font-serif font-bold">Urban Lines</h3>
+                    </div>
+                </div>
+                <!-- Art Piece 3 -->
+                <div class="gallery-item reveal group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
+                    <img src="https://picsum.photos/seed/sketch3/1000/800" alt="Nature Whispers" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Creative Art</span>
+                        <h3 class="text-2xl font-serif font-bold">Nature Whispers</h3>
+                    </div>
+                </div>
+                <!-- Art Piece 4 -->
+                <div class="gallery-item reveal group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
+                    <img src="https://picsum.photos/seed/sketch4/800/1000" alt="The Old Man" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Portrait</span>
+                        <h3 class="text-2xl font-serif font-bold">The Old Man</h3>
+                    </div>
+                </div>
+                <!-- Art Piece 5 -->
+                <div class="gallery-item reveal group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
+                    <img src="https://picsum.photos/seed/sketch5/800/800" alt="Abstract Flow" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Creative Art</span>
+                        <h3 class="text-2xl font-serif font-bold">Abstract Flow</h3>
+                    </div>
+                </div>
+                <!-- Art Piece 6 -->
+                <div class="gallery-item reveal group relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
+                    <img src="https://picsum.photos/seed/sketch6/1000/800" alt="Charcoal Dreams" class="w-full h-full object-cover" referrerpolicy="no-referrer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Pencil Sketch</span>
+                        <h3 class="text-2xl font-serif font-bold">Charcoal Dreams</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section-padding relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative reveal">
+                <div class="aspect-square rounded-3xl overflow-hidden border border-white/10">
+                    <img src="https://picsum.photos/seed/artist/800/800" alt="Debojit Das" class="w-full h-full object-cover grayscale" referrerpolicy="no-referrer">
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-48 h-48 apple-blur border border-white/10 rounded-2xl p-6 flex flex-col justify-center">
+                    <span class="text-3xl font-serif font-bold text-accent">5+</span>
+                    <span class="text-xs text-white/50 uppercase tracking-widest">Years of Passion</span>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <span class="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block">The Artist</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8">Debojit Das</h2>
+                <div class="space-y-6 text-white/60 leading-relaxed text-lg">
+                    <p>
+                        I am a young, passionate artist dedicated to the timeless art of pencil sketching. For me, a simple graphite pencil is a tool of infinite possibilities, capable of capturing the finest details of a human soul or the complex textures of nature.
+                    </p>
+                    <p>
+                        Under the banner of <span class="text-white font-medium">DD Creative Arts</span>, I strive to push the boundaries of realism and creativity. Every stroke is intentional, every shadow is a story, and every piece is a part of my journey.
+                    </p>
+                </div>
+                <div class="mt-10 flex gap-6">
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold">Pencil Sketching</span>
+                        <span class="text-xs text-white/40">Specialization</span>
+                    </div>
+                    <div class="w-[1px] h-10 bg-white/10"></div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-bold">Portrait Art</span>
+                        <span class="text-xs text-white/40">Expertise</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order" class="section-padding bg-white text-black rounded-[3rem] mx-4 md:mx-8 mb-12 reveal">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+            <div class="flex-1">
+                <h2 class="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">Own a Piece of <br>Personalized Art</h2>
+                <p class="text-black/60 text-lg mb-10 max-w-lg">
+                    Looking for a unique gift or a timeless portrait? I accept custom commissions for pencil sketches and creative artworks.
+                </p>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 font-medium">
+                        <div class="w-5 h-5 rounded-full bg-black flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-3 h-3 text-white"></i>
+                        </div>
+                        High-quality graphite portraits
+                    </li>
+                    <li class="flex items-center gap-3 font-medium">
+                        <div class="w-5 h-5 rounded-full bg-black flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-3 h-3 text-white"></i>
+                        </div>
+                        Custom creative illustrations
+                    </li>
+                    <li class="flex items-center gap-3 font-medium">
+                        <div class="w-5 h-5 rounded-full bg-black flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-3 h-3 text-white"></i>
+                        </div>
+                        Available in various sizes (A4, A3, etc.)
+                    </li>
+                    <li class="flex items-center gap-3 font-medium">
+                        <div class="w-5 h-5 rounded-full bg-black flex items-center justify-center">
+                            <i data-lucide="chevron-right" class="w-3 h-3 text-white"></i>
+                        </div>
+                        Worldwide shipping available
+                    </li>
+                </ul>
+                <a href="mailto:debojitmld149@gmail.com?subject=Custom Sketch Order" class="inline-flex items-center gap-3 px-10 py-5 bg-black text-white rounded-full font-bold hover:scale-105 transition-transform">
+                    Start Your Order
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <div class="flex-1 grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <img src="https://picsum.photos/seed/order1/400/500" alt="Process" class="rounded-2xl w-full" referrerpolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/order2/400/300" alt="Process" class="rounded-2xl w-full" referrerpolicy="no-referrer">
+                </div>
+                <div class="space-y-4 pt-12">
+                    <img src="https://picsum.photos/seed/order3/400/300" alt="Process" class="rounded-2xl w-full" referrerpolicy="no-referrer">
+                    <img src="https://picsum.photos/seed/order4/400/500" alt="Process" class="rounded-2xl w-full" referrerpolicy="no-referrer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-padding">
+        <div class="max-w-7xl mx-auto text-center reveal">
+            <h2 class="text-4xl md:text-7xl font-serif font-bold mb-12">Let's Create Something <br>Beautiful Together</h2>
+            
+            <div class="flex flex-wrap justify-center gap-8 mb-16">
+                <a href="mailto:debojitmld149@gmail.com" class="group flex items-center gap-4 p-6 apple-blur border border-white/10 rounded-3xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                        <i data-lucide="mail"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-xs text-white/40 uppercase tracking-widest font-bold">Email Me</span>
+                        <span class="text-lg font-medium">debojitmld149@gmail.com</span>
+                    </div>
+                </a>
+
+                <a href="https://instagram.com/debojitdas409" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-4 p-6 apple-blur border border-white/10 rounded-3xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                        <i data-lucide="instagram"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-xs text-white/40 uppercase tracking-widest font-bold">Follow Me</span>
+                        <span class="text-lg font-medium">@debojitdas409</span>
+                    </div>
+                </a>
+
+                <a href="sms:+917501702495" class="group flex items-center gap-4 p-6 apple-blur border border-white/10 rounded-3xl hover:border-white/30 transition-all">
+                    <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
+                        <i data-lucide="send"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-xs text-white/40 uppercase tracking-widest font-bold">Text Only</span>
+                        <span class="text-lg font-medium">7501702495</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-serif font-bold mb-2">DD Creative Arts</h3>
+                <p class="text-white/40 text-sm">© <span id="year"></span> Debojit Das. All rights reserved.</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="https://instagram.com/debojitdas409" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="mailto:debojitmld149@gmail.com" class="text-white/40 hover:text-white transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                <a href="sms:+917501702495" class="text-white/40 hover:text-white transition-colors"><i data-lucide="send" class="w-5 h-5"></i></a>
+            </div>
+
+            <div class="text-xs text-white/20 uppercase tracking-[0.2em]">
+                Handcrafted with Passion
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('apple-blur', 'py-4');
+                navbar.classList.remove('py-8');
+            } else {
+                navbar.classList.remove('apple-blur', 'py-4');
+                navbar.classList.add('py-8');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // Reveal on Scroll Animation
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial check
+        revealOnScroll();
+    </script>
+</body>
+</html>
